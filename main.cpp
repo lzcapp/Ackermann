@@ -17,7 +17,10 @@ int main() {
     auto stop = high_resolution_clock::now();
     auto duration = duration_cast<microseconds>(stop - start);
 
-    double seconds = duration.count() / 1e6;
-    cout << "Time taken: " << seconds << " seconds" << endl;
-    return 0;
+    ::duration<double> seconds = static_cast<::duration<double>>(::duration_cast<::duration<double>>(duration) / ::seconds(1));
+    std::cout << "Time taken: " << seconds.count() << " seconds" << std::endl;
+
+    cin.clear();
+    cin.sync();
+    cin.get();
 }
